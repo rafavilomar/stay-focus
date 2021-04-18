@@ -9,6 +9,8 @@ type props = {
 };
 
 const RoundedButton: React.FC<props> = ({ value, onPress, active = false }) => {
+  
+
   return (
     <TouchableOpacity
       style={active ? styles.btn_active : styles.btn}
