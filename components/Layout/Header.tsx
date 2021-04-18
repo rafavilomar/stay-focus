@@ -1,12 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
+import IconButton from "../Button/IconButton";
+import {Ionicons} from '@expo/vector-icons'
 import { colors } from "./GlobalStyles";
 
 export const BigHeader = () => {
   return (
     <View style={styles.bigHeader}>
       <Text style={styles.BigHeader_text}>Home</Text>
-      <View style={styles.icon}></View>
+      <IconButton icon={<Ionicons name='settings-sharp' size={30} color={colors.textMain} />} onPress={() => Alert.alert('Presssssss')} />
     </View>
   );
 };
@@ -20,14 +22,8 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   BigHeader_text: {
-    //   fontFamily: 'Poppins',
     fontWeight: "bold",
     fontSize: 34,
     color: colors.textMain,
-  },
-  icon: {
-    width: 34,
-    height: 34,
-    backgroundColor: colors.backgorundSecondary,
   },
 });

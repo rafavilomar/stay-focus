@@ -12,7 +12,10 @@ const PlayContent = () => {
           <Text style={styles.nameSong}>Lofi Hip Hop</Text>
           <Text style={styles.autor}>Autor name</Text>
         </View>
-        <View style={styles.icon}></View>
+        <IconButton
+          icon={<Ionicons name="repeat" size={24} color={colors.textMain} />}
+          onPress={() => Alert.alert("Press")}
+        />
       </View>
       <View style={styles.actions}>
         <IconButton
@@ -47,6 +50,7 @@ const styles = StyleSheet.create({
   content: {
     display: "flex",
     flexDirection: "row",
+    alignItems: 'flex-start',
     width: "100%",
     justifyContent: "space-between",
   },
@@ -68,15 +72,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
-  },
-  icon: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 5,
-    borderRadius: 5,
-    width: 34,
-    height: 34,
-    backgroundColor: colors.background,
-  },
+  }
 });
