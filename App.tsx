@@ -1,10 +1,11 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Button from "./components/Button/Button";
 import GlobalStyles, { colors } from "./components/Layout/GlobalStyles";
 import { BigHeader } from "./components/Layout/Header";
 import RoundedButton from "./components/Button/RoundedButton";
+import PlayContent from "./components/Music/PlayContent";
 
 export default function App() {
   const [tab1, setTab1] = React.useState<boolean>(true);
@@ -42,10 +43,10 @@ export default function App() {
           />
         </View>
       </View>
-      <View style={styles.contentPlay} />
+      <PlayContent/>
       <Button
         value="START"
-        onPress={() => Alert.alert("Main button pressed")}
+        onPress={() => console.log("Main button pressed")}
       />
     </View>
   );
