@@ -1,11 +1,10 @@
 import React from "react";
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import IconButton from "../Button/IconButton";
 import {Ionicons} from '@expo/vector-icons'
 import { colors } from "./GlobalStyles";
 
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
 export const BigHeader = () => {
 

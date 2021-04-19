@@ -6,7 +6,9 @@ export const colors = {
     backgorundSecondary: '#E5E5E5',
     main: '#6C4D8B',
     textMain: '#101010',
-    textSecondary: '#73677E'
+    textSecondary: '#73677E',
+    border: '#6B6670',
+    fieldText: '#73677E'
 }
 
 const GlobalStyles = StyleSheet.create({
@@ -15,7 +17,8 @@ const GlobalStyles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         paddingHorizontal: 20,
-        paddingVertical: 10
+        paddingVertical: 10,
+        height: '100%'
     },
 
 })
