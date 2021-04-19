@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { colors } from "../Layout/GlobalStyles";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { TouchableNativeFeedback } from "react-native-gesture-handler";
 
 type props = {
     icon: any
@@ -15,9 +15,12 @@ const IconButton: React.FC<props> = ({
     active = false,
     disabled = false
 }) => {
-  return <TouchableOpacity onPress={() => onPress()} style={styles.btn}>
+  return (
+    <View style={{borderRadius: 500, overflow: 'hidden'}}>
+  <TouchableNativeFeedback onPress={() => onPress()} style={styles.btn}>
       {icon}
-  </TouchableOpacity>;
+  </TouchableNativeFeedback>
+  </View>);
 };
 export default IconButton;
 
@@ -26,8 +29,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 5,
-    borderRadius: 5,
+    padding: 10,
   },
   active: {},
   disabled: {},

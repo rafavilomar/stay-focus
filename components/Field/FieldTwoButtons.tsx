@@ -58,8 +58,7 @@ const styles = StyleSheet.create({
   },
   content: {
     display: "flex",
-    flexDirection: "row",
-    padding: 5
+    flexDirection: "row"
   },
   field: {
     width: "100%",

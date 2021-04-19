@@ -1,13 +1,22 @@
 import React from "react";
-import { Text, TextInput, View, StyleSheet, Alert, Picker } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Text, TextInput, View, StyleSheet, Alert, Picker, TouchableNativeFeedback } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import FieldTwoButtons from "../components/Field/FieldTwoButtons";
+import RadioOption from "../components/Field/RadioOption";
 import GlobalStyles, { colors } from "../components/Layout/GlobalStyles";
+import { TouchableHighlight } from "react-native-gesture-handler";
+import IconButton from "../components/Button/IconButton";
 
 const Settings = () => {
-  const [selectedValue, setSelectedValue] = React.useState("java");
+  const navigation = useNavigation();
 
   const testPress = () => {
     Alert.alert("Test funtion");
+  };
+
+  const goToTheme = () => {
+    navigation.navigate("Theme");
   };
 
   return (
@@ -38,17 +47,15 @@ const Settings = () => {
       </View>
       <View style={styles.section2}>
         <Text style={styles.sectionTitle}>Appearance</Text>
-      <View style={styles.content}>
-        <Text style={styles.title}>Theme</Text>
-        <Picker
-        selectedValue={selectedValue}
-        style={styles.picker}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-      >
-        <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" />
-      </Picker>
-      </View>
+        <TouchableNativeFeedback onPress={goToTheme}>
+          <View style={{marginTop: 20}}>
+            <Text style={styles.title}>Theme</Text>
+          <View style={styles.iconOption}>
+            <Text style={styles.iconOptionValue}>Light</Text>
+            <Ionicons name="chevron-forward" size={24} color={colors.textMain} />
+          </View>
+          </View>
+        </TouchableNativeFeedback>
       </View>
     </View>
   );
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
   section2: {
     display: "flex",
     flexDirection: "column",
-    marginTop: 40
+    marginTop: 40,
   },
   sectionTitle: {
     fontSize: 20,
@@ -73,19 +80,23 @@ const styles = StyleSheet.create({
   content: {
     display: "flex",
     flexDirection: "column",
-    marginTop: 40
+    marginTop: 40,
   },
   title: {
     fontSize: 14,
     color: colors.textSecondary,
   },
-  picker: {
+  iconOption: {
     width: "100%",
+    height: 40,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconOptionValue: {
+    flex: 1,
     fontSize: 16,
     fontWeight: "700",
-    height: 40,
     color: colors.fieldText,
-    borderWidth: 1,
-    borderColor: 'red'
-  }
+  },
 });

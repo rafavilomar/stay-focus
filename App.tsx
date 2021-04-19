@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native'
 //SCREENS
 import Home from './screens/Home'
 import Settings from './screens/Settings'
+import Theme from './screens/Theme'
 
 export default function App() {
 
@@ -16,6 +17,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='Settings' component={Settings}/>
+        <Stack.Screen name='Theme' component={Theme}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
