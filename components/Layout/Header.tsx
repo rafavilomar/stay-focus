@@ -4,11 +4,17 @@ import IconButton from "../Button/IconButton";
 import {Ionicons} from '@expo/vector-icons'
 import { colors } from "./GlobalStyles";
 
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 export const BigHeader = () => {
+
+  const navigation = useNavigation()
+
   return (
     <View style={styles.bigHeader}>
       <Text style={styles.BigHeader_text}>Home</Text>
-      <IconButton icon={<Ionicons name='settings-sharp' size={30} color={colors.textMain} />} onPress={() => Alert.alert('Presssssss')} />
+      <IconButton icon={<Ionicons name='settings-sharp' size={30} color={colors.textMain} />} onPress={() => navigation.navigate('Settings')} />
     </View>
   );
 };
