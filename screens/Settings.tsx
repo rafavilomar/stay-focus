@@ -1,12 +1,9 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, TextInput, View, StyleSheet, Alert, Picker, TouchableNativeFeedback } from "react-native";
+import { Text,  View, StyleSheet, Alert, TouchableNativeFeedback } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import FieldTwoButtons from "../components/Field/FieldTwoButtons";
-import RadioOption from "../components/Field/RadioOption";
 import GlobalStyles, { colors } from "../components/Layout/GlobalStyles";
-import { TouchableHighlight } from "react-native-gesture-handler";
-import IconButton from "../components/Button/IconButton";
 
 const Settings = () => {
   const navigation = useNavigation();

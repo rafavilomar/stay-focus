@@ -4,7 +4,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../components/Button/Button';
 import RoundedButton from '../components/Button/RoundedButton';
 import GlobalStyles, { colors } from '../components/Layout/GlobalStyles';
-import { BigHeader } from '../components/Layout/Header';
 import PlayContent from '../components/Music/PlayContent';
 
 const Home = () => {
@@ -23,8 +22,6 @@ const Home = () => {
     return(
         <ScrollView style={{height: '100%', backgroundColor: colors.background}}>
           <View style={GlobalStyles.container}>
-          {/* <StatusBar style="auto" /> */}
-          <BigHeader />
           <View style={styles.mainContent}>
             <View style={styles.clock} />
             <View style={styles.tabs}>
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
     tabs: {
       borderColor: colors.border,
       borderWidth: 1,
-      backgroundColor: colors.backgorundSecondary,
+      backgroundColor: colors.backgroundSecondary,
       width: '90%',
       height: 50,
       borderRadius: 200,
@@ -84,7 +81,7 @@ const styles = StyleSheet.create({
       overflow: "hidden",
     },
     contentPlay: {
-      backgroundColor: colors.backgorundSecondary,
+      backgroundColor: colors.backgroundSecondary,
       height: 118,
       borderRadius: 5,
       marginTop: 15,
