@@ -58,11 +58,10 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.29,
     shadowRadius: 3,
-
     elevation: 7,
   },
   btnText: {
-    color: colors.textSecondary,
+    color: colors.textMain,
     fontWeight: "900",
     fontSize: 14,
   },

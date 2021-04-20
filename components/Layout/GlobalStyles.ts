@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 
 export const colors = {
     background: '#FFFFFF',
-    backgorundSecondary: '#E5E5E5',
+    backgorundSecondary: '#FDE9FF',
     main: '#6C4D8B',
     textMain: '#101010',
     textSecondary: '#73677E',
@@ -16,9 +16,9 @@ const GlobalStyles = StyleSheet.create({
         backgroundColor: colors.background,
         display: 'flex',
         flexDirection: 'column',
-        paddingHorizontal: 20,
+        alignItems: 'center',
         paddingVertical: 10,
-        height: '100%'
+        height: '100%',
     },
 
 })

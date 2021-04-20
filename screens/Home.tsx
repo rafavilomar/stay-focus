@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../components/Button/Button';
 import RoundedButton from '../components/Button/RoundedButton';
 import GlobalStyles, { colors } from '../components/Layout/GlobalStyles';
@@ -20,7 +21,8 @@ const Home = () => {
   };
 
     return(
-        <View style={GlobalStyles.container}>
+        <ScrollView style={{height: '100%', backgroundColor: colors.background}}>
+          <View style={GlobalStyles.container}>
           {/* <StatusBar style="auto" /> */}
           <BigHeader />
           <View style={styles.mainContent}>
@@ -48,7 +50,8 @@ const Home = () => {
             value="START"
             onPress={() => console.log("Main button pressed")}
           />
-        </View>
+          </View>
+        </ScrollView>
     )
 }
 export default Home;
@@ -62,14 +65,16 @@ const styles = StyleSheet.create({
       marginTop: 25,
     },
     clock: {
-      backgroundColor: "red",
+      backgroundColor: colors.main,
       height: 220,
       width: 220,
       borderRadius: 500,
     },
     tabs: {
+      borderColor: colors.border,
+      borderWidth: 1,
       backgroundColor: colors.backgorundSecondary,
-      width: "100%",
+      width: '90%',
       height: 50,
       borderRadius: 200,
       padding: 5,

@@ -25,9 +25,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: colors.main,
-    borderRadius: 5,
-    height: 45,
-    marginTop: 15
+    borderRadius: 200,
+    height: 50,
+    marginTop: 15,
+    width: '90%',
+    shadowColor: "#A17FC1",
+shadowOffset: {
+	width: 0,
+	height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+elevation: 5,
   },
   btnText: {
     color: "#fff",

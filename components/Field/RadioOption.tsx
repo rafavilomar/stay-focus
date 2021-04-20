@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    marginBottom: 20
+    marginBottom: 20,
+    width: '90%'
   },
   content: {
     display: "flex",

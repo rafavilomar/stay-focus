@@ -66,11 +66,13 @@ const styles = StyleSheet.create({
   section: {
     display: "flex",
     flexDirection: "column",
+    width: '90%'
   },
   section2: {
     display: "flex",
     flexDirection: "column",
     marginTop: 40,
+    width: '90%'
   },
   sectionTitle: {
     fontSize: 20,

@@ -17,7 +17,7 @@ const IconButton: React.FC<props> = ({
 }) => {
   return (
     <View style={{borderRadius: 500, overflow: 'hidden'}}>
-  <TouchableNativeFeedback onPress={() => onPress()} style={styles.btn}>
+  <TouchableNativeFeedback onPress={() => onPress()} style={styles.btn} disabled={disabled}>
       {icon}
   </TouchableNativeFeedback>
   </View>);

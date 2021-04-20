@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 0,
+    width: '90%',
   },
   BigHeader_text: {
     fontWeight: "bold",
