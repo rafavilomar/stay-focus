@@ -1,55 +1,187 @@
 import React from "react";
-import { View, StyleSheet, Text, Alert } from "react-native";
+import { View, StyleSheet, Text, Alert, Animated } from "react-native";
 import { colors } from "../Layout/GlobalStyles";
 import { Ionicons } from "@expo/vector-icons";
 import IconButton from "../Button/IconButton";
 
 const PlayContent = () => {
+  const fadeAnim = [
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+    React.useRef(new Animated.Value(10)).current,
+  ];
+  const fadeIn = (time: number, index: number) => {
+    Animated.loop(
+      Animated.timing(fadeAnim[index], {
+        toValue: 40,
+        duration: time,
+        useNativeDriver: false,
+      })
+    ).start();
+  };
   return (
     <View style={styles.root}>
+      <IconButton
+        icon={<Ionicons name="volume-high" color={colors.textMain} size={24} />}
+        onPress={() => null}
+      />
       <View style={styles.content}>
-        <View style={styles.info}>
-          <Text style={styles.nameSong}>Lofi Hip Hop</Text>
-          <Text style={styles.autor}>Autor name</Text>
-        </View>
-        <IconButton
-          icon={<Ionicons name="repeat" size={22} color={colors.textMain} />}
-          onPress={() => Alert.alert("Press")}
-        />
-      </View>
-      <View style={{ height: 27 }}></View>
-      <View style={styles.actions}>
-        <IconButton
-          icon={
-            <Ionicons
-              name="md-play-skip-back"
-              size={22}
-              color={colors.textMain}
-            />
-          }
-          onPress={() => Alert.alert("Press")}
-        />
-        <IconButton
-          icon={
-            <Ionicons
-              name="play"
-              size={34}
-              color={colors.textMain}
-              style={{ paddingLeft: 6 }}
-            />
-          }
-          onPress={() => Alert.alert("Press")}
-        />
-        <IconButton
-          icon={
-            <Ionicons
-              name="md-play-skip-forward"
-              size={22}
-              color={colors.textMain}
-            />
-          }
-          onPress={() => Alert.alert("Press")}
-        />
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+        >
+          {fadeIn(300, 0)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+        >
+          {fadeIn(800, 1)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+        >
+          {fadeIn(500, 2)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+        >
+          {fadeIn(1000, 3)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+        >
+          {fadeIn(700, 4)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+        >
+          {fadeIn(300, 0)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+        >
+          {fadeIn(800, 1)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+        >
+          {fadeIn(500, 2)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+        >
+          {fadeIn(1000, 3)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+        >
+          {fadeIn(700, 4)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+        >
+          {fadeIn(300, 0)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+        >
+          {fadeIn(800, 1)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+        >
+          {fadeIn(500, 2)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+        >
+          {fadeIn(1000, 3)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+        >
+          {fadeIn(700, 4)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+        >
+          {fadeIn(300, 0)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+        >
+          {fadeIn(800, 1)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+        >
+          {fadeIn(500, 2)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+        >
+          {fadeIn(1000, 3)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+        >
+          {fadeIn(700, 4)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+        >
+          {fadeIn(800, 1)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+        >
+          {fadeIn(500, 2)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+        >
+          {fadeIn(1000, 3)}
+          <></>
+        </Animated.View>
+        <Animated.View
+          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+        >
+          {fadeIn(700, 4)}
+          <></>
+        </Animated.View>
       </View>
     </View>
   );
@@ -57,35 +189,30 @@ const PlayContent = () => {
 export default PlayContent;
 
 const styles = StyleSheet.create({
+  fadingContainer: {
+    backgroundColor: "#B0588F",
+    width: 10,
+    marginLeft: 5,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+  },
+  fadingText: {
+    fontSize: 28,
+  },
   root: {
     width: "90%",
-    borderColor: colors.border,
-    borderWidth: 1,
-    marginTop: 15,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    backgroundColor: colors.backgroundSecondary,
-    borderRadius: 15,
-    padding: 15,
-    flex: 1,
-    maxHeight: 220,
-    minHeight: 180,
-    shadowColor: "#A17FC1",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 2,
-  },
-  content: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "flex-start",
-    width: "100%",
-    justifyContent: "space-between",
+    alignItems: 'flex-end'
+  },
+  content: {
+    marginLeft: 19,
+    display: "flex",
+    flexDirection: "row",
+    height: 100,
+    alignItems: "flex-end",
+    flex: 1,
+    overflow: 'hidden'
   },
   info: {
     display: "flex",

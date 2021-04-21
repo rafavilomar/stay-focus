@@ -9,8 +9,6 @@ type props = {
 };
 
 const RoundedButton: React.FC<props> = ({ value, onPress, active = false }) => {
-  
-
   return (
     <TouchableOpacity
       style={active ? styles.btn_active : styles.btn}
@@ -33,7 +31,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 8,
     backgroundColor: colors.backgroundSecondary,
-    height: '100%',
+    height: "100%",
     width: "33%",
     borderRadius: 200,
   },
@@ -44,8 +42,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 5,
     paddingVertical: 8,
-    backgroundColor: colors.background,
-    height: '100%',
+    backgroundColor: colors.backgroundTertiary,
+    height: "100%",
     width: "33%",
     borderRadius: 200,
     borderStyle: "solid",

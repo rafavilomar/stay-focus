@@ -8,6 +8,7 @@ import Home from "./screens/Home";
 import Settings from "./screens/Settings";
 import Theme from "./screens/Theme";
 import { BigHeader, Header } from "./components/Layout/Header";
+import { colors } from "./components/Layout/GlobalStyles";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -18,7 +19,10 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerTitle: (props) => <BigHeader /> , headerStyle: {elevation: 0}}}
+          options={{
+            headerTitle: (props) => <BigHeader />,
+            headerStyle: { elevation: 0, backgroundColor: colors.background },
+          }}
         />
         <Stack.Screen
           name="Settings"
@@ -28,6 +32,7 @@ export default function App() {
               <Header title="Settings" backScreen="Home" />
             ),
             headerLeft: () => null,
+            headerStyle: { backgroundColor: colors.background },
           }}
         />
         <Stack.Screen
@@ -38,6 +43,7 @@ export default function App() {
               <Header title="Theme" backScreen="Settings" />
             ),
             headerLeft: () => null,
+            headerStyle: { backgroundColor: colors.background },
           }}
         />
       </Stack.Navigator>

@@ -48,7 +48,9 @@ export const Header: React.FC<props> = ({ title, backScreen, checkPress }) => {
           }
           onPress={() => checkPress()}
         />
-      ) : (<View style={{height: 44, width: 44}} ></View>)}
+      ) : (
+        <View style={{ height: 44, width: 44 }}></View>
+      )}
     </View>
   );
 };

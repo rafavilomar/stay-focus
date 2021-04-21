@@ -8,21 +8,16 @@ type props = {
   title: string;
   value: number;
   onChange: Function;
-  // plusPress: Function;
-  // restPress: Function;
 };
 
 const FieldTwoButtons: React.FC<props> = ({
   title,
   value,
   onChange,
-  //plusPress,
-  //restPress,
 }) => {
 
   const changeValue = (value: any) => {
     onChange(parseInt(value))
-    console.log(value)
   }
 
   const plusPress = () => {
@@ -34,8 +29,6 @@ const FieldTwoButtons: React.FC<props> = ({
     value--
     changeValue(value)
   }
-
-
 
   return (
     <View style={styles.root}>

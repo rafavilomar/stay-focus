@@ -28,15 +28,14 @@ const styles = StyleSheet.create({
     borderRadius: 200,
     height: 50,
     marginTop: 15,
-    width: '90%',
     shadowColor: "#A17FC1",
-shadowOffset: {
-	width: 0,
-	height: 2,
-},
-shadowOpacity: 0.25,
-shadowRadius: 3.84,
-elevation: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   btnText: {
     color: "#fff",

@@ -6,7 +6,7 @@ type props = {
   value: string;
   onPress: Function;
   active: boolean;
-  helper?: string
+  helper?: string;
 };
 
 const RadioOption: React.FC<props> = ({ value, onPress, active, helper }) => {
@@ -20,9 +20,7 @@ const RadioOption: React.FC<props> = ({ value, onPress, active, helper }) => {
               <View style={active && styles.radioActive}></View>
             </View>
           </View>
-          {helper && <Text style={styles.helper}>
-            {helper}
-          </Text>}
+          {helper && <Text style={styles.helper}>{helper}</Text>}
         </View>
       </TouchableNativeFeedback>
     </View>
@@ -35,17 +33,16 @@ const styles = StyleSheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    width: '90%',
+    width: "90%",
     marginBottom: 25,
     borderBottomWidth: 1,
-    borderColor: colors.border
+    borderColor: colors.border,
   },
   content: {
-    // backgroundColor: 'red',
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   value: {
     color: colors.fieldText,
@@ -77,6 +74,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     fontSize: 16,
     color: colors.textSecondary,
-    paddingVertical: 10
+    paddingVertical: 10,
   },
 });
