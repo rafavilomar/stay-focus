@@ -5,7 +5,10 @@ import { Ionicons } from "@expo/vector-icons";
 import IconButton from "../Button/IconButton";
 
 const PlayContent = () => {
-  const fadeAnim = [
+ 
+  const [sound, setSound] = React.useState<boolean>(true)
+  
+  const animationValue = [
     React.useRef(new Animated.Value(10)).current,
     React.useRef(new Animated.Value(10)).current,
     React.useRef(new Animated.Value(10)).current,
@@ -22,10 +25,10 @@ const PlayContent = () => {
     React.useRef(new Animated.Value(10)).current,
     React.useRef(new Animated.Value(10)).current,
   ];
-  const fadeIn = (time: number, index: number) => {
+  const animation = (time: number, index: number) => {
     Animated.loop(
-      Animated.timing(fadeAnim[index], {
-        toValue: 40,
+      Animated.timing(animationValue[index], {
+        toValue: sound ? 40 : 10,
         duration: time,
         useNativeDriver: false,
       })
@@ -34,152 +37,152 @@ const PlayContent = () => {
   return (
     <View style={styles.root}>
       <IconButton
-        icon={<Ionicons name="volume-high" color={colors.textMain} size={24} />}
-        onPress={() => null}
+        icon={ sound ? <Ionicons name="volume-high" color={colors.textMain} size={24} /> : <Ionicons name="volume-mute" color={colors.textMain} size={24} /> }
+        onPress={() => setSound(!sound)}
       />
       <View style={styles.content}>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+          style={[styles.fadingContainer, { height: animationValue[0] }]}
         >
-          {fadeIn(300, 0)}
+          {animation(300, 0)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+          style={[styles.fadingContainer, { height: animationValue[1] }]}
         >
-          {fadeIn(800, 1)}
+          {animation(800, 1)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+          style={[styles.fadingContainer, { height: animationValue[2] }]}
         >
-          {fadeIn(500, 2)}
+          {animation(500, 2)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+          style={[styles.fadingContainer, { height: animationValue[3] }]}
         >
-          {fadeIn(1000, 3)}
+          {animation(1000, 3)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+          style={[styles.fadingContainer, { height: animationValue[4] }]}
         >
-          {fadeIn(700, 4)}
+          {animation(700, 4)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+          style={[styles.fadingContainer, { height: animationValue[0] }]}
         >
-          {fadeIn(300, 0)}
+          {animation(300, 0)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+          style={[styles.fadingContainer, { height: animationValue[1] }]}
         >
-          {fadeIn(800, 1)}
+          {animation(800, 1)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+          style={[styles.fadingContainer, { height: animationValue[2] }]}
         >
-          {fadeIn(500, 2)}
+          {animation(500, 2)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+          style={[styles.fadingContainer, { height: animationValue[3] }]}
         >
-          {fadeIn(1000, 3)}
+          {animation(1000, 3)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+          style={[styles.fadingContainer, { height: animationValue[4] }]}
         >
-          {fadeIn(700, 4)}
+          {animation(700, 4)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+          style={[styles.fadingContainer, { height: animationValue[0] }]}
         >
-          {fadeIn(300, 0)}
+          {animation(300, 0)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+          style={[styles.fadingContainer, { height: animationValue[1] }]}
         >
-          {fadeIn(800, 1)}
+          {animation(800, 1)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+          style={[styles.fadingContainer, { height: animationValue[2] }]}
         >
-          {fadeIn(500, 2)}
+          {animation(500, 2)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+          style={[styles.fadingContainer, { height: animationValue[3] }]}
         >
-          {fadeIn(1000, 3)}
+          {animation(1000, 3)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+          style={[styles.fadingContainer, { height: animationValue[4] }]}
         >
-          {fadeIn(700, 4)}
+          {animation(700, 4)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[0] }]}
+          style={[styles.fadingContainer, { height: animationValue[0] }]}
         >
-          {fadeIn(300, 0)}
+          {animation(300, 0)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+          style={[styles.fadingContainer, { height: animationValue[1] }]}
         >
-          {fadeIn(800, 1)}
+          {animation(800, 1)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+          style={[styles.fadingContainer, { height: animationValue[2] }]}
         >
-          {fadeIn(500, 2)}
+          {animation(500, 2)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+          style={[styles.fadingContainer, { height: animationValue[3] }]}
         >
-          {fadeIn(1000, 3)}
+          {animation(1000, 3)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+          style={[styles.fadingContainer, { height: animationValue[4] }]}
         >
-          {fadeIn(700, 4)}
+          {animation(700, 4)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[1] }]}
+          style={[styles.fadingContainer, { height: animationValue[1] }]}
         >
-          {fadeIn(800, 1)}
+          {animation(800, 1)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[2] }]}
+          style={[styles.fadingContainer, { height: animationValue[2] }]}
         >
-          {fadeIn(500, 2)}
+          {animation(500, 2)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[3] }]}
+          style={[styles.fadingContainer, { height: animationValue[3] }]}
         >
-          {fadeIn(1000, 3)}
+          {animation(1000, 3)}
           <></>
         </Animated.View>
         <Animated.View
-          style={[styles.fadingContainer, { height: fadeAnim[4] }]}
+          style={[styles.fadingContainer, { height: animationValue[4] }]}
         >
-          {fadeIn(700, 4)}
+          {animation(700, 4)}
           <></>
         </Animated.View>
       </View>
