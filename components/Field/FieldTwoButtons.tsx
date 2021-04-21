@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, View, StyleSheet, Text} from "react-native";
+import { TextInput, View, StyleSheet, Text, Alert} from "react-native";
 import IconButton from "../Button/IconButton";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../Layout/GlobalStyles";
@@ -8,34 +8,53 @@ type props = {
   title: string;
   value: number;
   onChange: Function;
-  plusPress: Function;
-  restPress: Function;
+  // plusPress: Function;
+  // restPress: Function;
 };
 
 const FieldTwoButtons: React.FC<props> = ({
   title,
   value,
   onChange,
-  plusPress,
-  restPress,
+  //plusPress,
+  //restPress,
 }) => {
+
+  const changeValue = (value: any) => {
+    onChange(parseInt(value))
+    console.log(value)
+  }
+
+  const plusPress = () => {
+    value++
+    changeValue(value)
+  }
+
+  const restPress = () => {
+    value--
+    changeValue(value)
+  }
+
+
+
   return (
     <View style={styles.root}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.content}>
         <TextInput
           style={styles.field}
-          onChange={() => onChange()}
-          value={`${value} min`}
+          onChangeText={text => changeValue(text)}
+          keyboardType='numeric'
+          value={`${value}`}
         />
         <View style={styles.action}>
           <IconButton
             icon={<Ionicons name="remove" size={24} color={colors.textMain} />}
-            onPress={() => plusPress()}
+            onPress={() => restPress()}
           />
           <IconButton
             icon={<Ionicons name="add" size={24} color={colors.textMain} />}
-            onPress={() => restPress()}
+            onPress={() => plusPress()}
           />
         </View>
       </View>

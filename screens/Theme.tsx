@@ -9,7 +9,7 @@ const Theme = () => {
       };
     return (
     <View style={GlobalStyles.container} >
-        <RadioOption value='Auto' onPress={testPress} active={true} helper='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui alias officia dolor commodi.'/>
+        <RadioOption value='Adaptive' onPress={testPress} active={true} helper='The theme adapts to the time of your phone. In the day the light theme and at night the dark theme.'/>
         <RadioOption value='Light' onPress={testPress} active={false}/>
         <RadioOption value='Dark' onPress={testPress} active={false}/>
         

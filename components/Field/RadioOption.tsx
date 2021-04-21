@@ -20,9 +20,9 @@ const RadioOption: React.FC<props> = ({ value, onPress, active, helper }) => {
               <View style={active && styles.radioActive}></View>
             </View>
           </View>
-          <Text style={styles.helper}>
+          {helper && <Text style={styles.helper}>
             {helper}
-          </Text>
+          </Text>}
         </View>
       </TouchableNativeFeedback>
     </View>
@@ -35,13 +35,17 @@ const styles = StyleSheet.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    marginBottom: 20,
-    width: '90%'
+    width: '90%',
+    marginBottom: 25,
+    borderBottomWidth: 1,
+    borderColor: colors.border
   },
   content: {
+    // backgroundColor: 'red',
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    paddingVertical: 10
   },
   value: {
     color: colors.fieldText,
@@ -70,8 +74,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.textSecondary,
   },
   helper: {
-    paddingLeft: 20,
-    fontSize: 14,
-    color: colors.textSecondary
+    marginTop: 15,
+    fontSize: 16,
+    color: colors.textSecondary,
+    paddingVertical: 10
   },
 });

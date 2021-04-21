@@ -1,20 +1,55 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text,  View, StyleSheet, Alert, TouchableNativeFeedback } from "react-native";
+import { Text,  View, StyleSheet, TouchableNativeFeedback } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import FieldTwoButtons from "../components/Field/FieldTwoButtons";
 import GlobalStyles, { colors } from "../components/Layout/GlobalStyles";
+import { getKey, saveKey } from "../storage";
+import Button from "../components/Button/Button";
 
 const Settings = () => {
   const navigation = useNavigation();
+  const [edited, setEdited] = React.useState<boolean>(false)
+  //----------------------------
+  const [focus, setFocus] = React.useState<number>(25)
+  const changeFocus = (value: number) => {
+    setFocus(value)
+    setEdited(true)
+  }
 
-  const testPress = () => {
-    Alert.alert("Test funtion");
-  };
+  const [shortBreak, setShortBreak] = React.useState<number>(5)
+  const changeShortBreak = (value: number) => {
+    setShortBreak(value)
+    setEdited(true)
+  }
+
+  const [longBreak, setLongBreak] = React.useState<number>(15)
+  const changeLongBreak = (value: number) => {
+    setLongBreak(value)
+    setEdited(true)
+  }
 
   const goToTheme = () => {
     navigation.navigate("Theme");
   };
+
+  const saveChange = () => {
+    saveKey('focus', focus.toString()).then(result =>result && setFocus(parseInt(result)))
+    saveKey('shortBreak', shortBreak.toString()).then(result =>result && setShortBreak(parseInt(result)))
+    saveKey('longBreak', longBreak.toString()).then(result =>result && setLongBreak(parseInt(result)))
+
+    setEdited(false)
+  }
+
+  const getStorageValue = () => {
+    getKey('focus').then(result => result && setFocus(parseInt(result)))
+    getKey('shortBreak').then(result => result && setShortBreak(parseInt(result)))
+    getKey('longBreak').then(result => result && setLongBreak(parseInt(result)))
+  } 
+
+  React.useEffect(() => {
+    getStorageValue()
+  },[])
 
   return (
     <View style={GlobalStyles.container}>
@@ -22,24 +57,18 @@ const Settings = () => {
         <Text style={styles.sectionTitle}>Basic</Text>
         <FieldTwoButtons
           title="Focus"
-          value={25}
-          onChange={testPress}
-          plusPress={testPress}
-          restPress={testPress}
+          value={focus}
+          onChange={changeFocus}
         />
         <FieldTwoButtons
           title="Short Break"
-          value={5}
-          onChange={testPress}
-          plusPress={testPress}
-          restPress={testPress}
+          value={shortBreak}
+          onChange={changeShortBreak}
         />
         <FieldTwoButtons
           title="Long Break"
-          value={15}
-          onChange={testPress}
-          plusPress={testPress}
-          restPress={testPress}
+          value={longBreak}
+          onChange={changeLongBreak}
         />
       </View>
       <View style={styles.section2}>
@@ -54,6 +83,8 @@ const Settings = () => {
           </View>
         </TouchableNativeFeedback>
       </View>
+      {edited && <Button value='Save change' onPress={saveChange}/>}
+      
     </View>
   );
 };
@@ -69,7 +100,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     marginTop: 40,
-    width: '90%'
+    width: '90%',
+    marginBottom: 30
   },
   sectionTitle: {
     fontSize: 20,
