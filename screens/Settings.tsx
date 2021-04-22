@@ -1,14 +1,16 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import FieldTwoButtons from "../components/Field/FieldTwoButtons";
-import GlobalStyles, { colors } from "../components/Layout/GlobalStyles";
+import GlobalStyles from "../components/Layout/GlobalStyles";
 import { getKey, saveKey } from "../storage";
 import Button from "../components/Button/Button";
 
 const Settings = () => {
   const navigation = useNavigation();
+  const {colors} = useTheme();
+
   const [edited, setEdited] = React.useState<boolean>(false);
   //----------------------------
   const [focus, setFocus] = React.useState<number>(25);
@@ -56,6 +58,48 @@ const Settings = () => {
       (result) => result && setLongBreak(parseInt(result))
     );
   };
+  
+  const styles = StyleSheet.create({
+    section: {
+      display: "flex",
+      flexDirection: "column",
+      width: "90%",
+    },
+    section2: {
+      display: "flex",
+      flexDirection: "column",
+      marginTop: 40,
+      width: "90%",
+      marginBottom: 30,
+    },
+    sectionTitle: {
+      fontSize: 20,
+      fontWeight: "700",
+      color: colors.text,
+    },
+    content: {
+      display: "flex",
+      flexDirection: "column",
+      marginTop: 40,
+    },
+    title: {
+      fontSize: 14,
+      color: colors.text,
+    },
+    iconOption: {
+      width: "100%",
+      height: 40,
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    iconOptionValue: {
+      flex: 1,
+      fontSize: 16,
+      fontWeight: "700",
+      color: colors.text,
+    },
+  });
 
   React.useEffect(() => {
     getStorageValue();
@@ -79,7 +123,7 @@ const Settings = () => {
       </View>
       <View style={styles.section2}>
         <Text style={styles.sectionTitle}>Appearance</Text>
-        <TouchableNativeFeedback onPress={goToTheme}>
+        <TouchableNativeFeedback onPress={goToTheme} background={TouchableNativeFeedback.Ripple(colors.border, false)}>
           <View style={{ marginTop: 20 }}>
             <Text style={styles.title}>Theme</Text>
             <View style={styles.iconOption}>
@@ -87,7 +131,7 @@ const Settings = () => {
               <Ionicons
                 name="chevron-forward"
                 size={24}
-                color={colors.textMain}
+                color={colors.text}
               />
             </View>
           </View>
@@ -98,45 +142,3 @@ const Settings = () => {
   );
 };
 export default Settings;
-
-const styles = StyleSheet.create({
-  section: {
-    display: "flex",
-    flexDirection: "column",
-    width: "90%",
-  },
-  section2: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: 40,
-    width: "90%",
-    marginBottom: 30,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: colors.textMain,
-  },
-  content: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: 40,
-  },
-  title: {
-    fontSize: 14,
-    color: colors.textSecondary,
-  },
-  iconOption: {
-    width: "100%",
-    height: 40,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  iconOptionValue: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: "700",
-    color: colors.fieldText,
-  },
-});

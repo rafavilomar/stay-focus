@@ -1,11 +1,12 @@
 import React from "react";
-import { View, StyleSheet, Text, Alert, Animated } from "react-native";
-import { colors } from "../Layout/GlobalStyles";
+import { View, StyleSheet, Animated } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import IconButton from "../Button/IconButton";
+import { useTheme } from "@react-navigation/native";
 
 const PlayContent = () => {
  
+  const {colors} = useTheme()
   const [sound, setSound] = React.useState<boolean>(true)
   
   const animationValue = [
@@ -34,10 +35,49 @@ const PlayContent = () => {
       })
     ).start();
   };
+  const styles = StyleSheet.create({
+    fadingContainer: {
+      backgroundColor: "#B0588F",
+      width: 10,
+      marginLeft: 5,
+      borderTopLeftRadius: 5,
+      borderTopRightRadius: 5,
+    },
+    fadingText: {
+      fontSize: 28,
+    },
+    root: {
+      width: "90%",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: 'flex-end'
+    },
+    content: {
+      marginLeft: 19,
+      display: "flex",
+      flexDirection: "row",
+      height: 100,
+      alignItems: "flex-end",
+      flex: 1,
+      overflow: 'hidden'
+    },
+    info: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    actions: {
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  });
+
   return (
     <View style={styles.root}>
       <IconButton
-        icon={ sound ? <Ionicons name="volume-high" color={colors.textMain} size={24} /> : <Ionicons name="volume-mute" color={colors.textMain} size={24} /> }
+        icon={ sound ? <Ionicons name="volume-high" color={colors.text} size={24} /> : <Ionicons name="volume-mute" color={colors.text} size={24} /> }
         onPress={() => setSound(!sound)}
       />
       <View style={styles.content}>
@@ -190,51 +230,3 @@ const PlayContent = () => {
   );
 };
 export default PlayContent;
-
-const styles = StyleSheet.create({
-  fadingContainer: {
-    backgroundColor: "#B0588F",
-    width: 10,
-    marginLeft: 5,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-  },
-  fadingText: {
-    fontSize: 28,
-  },
-  root: {
-    width: "90%",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: 'flex-end'
-  },
-  content: {
-    marginLeft: 19,
-    display: "flex",
-    flexDirection: "row",
-    height: 100,
-    alignItems: "flex-end",
-    flex: 1,
-    overflow: 'hidden'
-  },
-  info: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  nameSong: {
-    color: colors.textMain,
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  autor: {
-    color: colors.textSecondary,
-    fontSize: 16,
-  },
-  actions: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
